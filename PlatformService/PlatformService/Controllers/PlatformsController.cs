@@ -30,6 +30,8 @@ namespace PlatformService.Controllers
     [HttpGet("{id}", Name = "GetPlatformById")]
     public ActionResult<PlatformReadDto> GetPlatformById(int id)
     {
+      Console.WriteLine("--> Getting GetPlatformById...");
+
       var platformItem = _repository.GetPlatformById(id);
       if(platformItem != null)
         return Ok(_mapper.Map<PlatformReadDto> (platformItem));
@@ -40,6 +42,8 @@ namespace PlatformService.Controllers
     [HttpPost]
     public ActionResult<PlatformReadDto> CreatePlatform(PlatformCreateDto platformCreateDto)
     {
+      Console.WriteLine("--> Getting CreatePlatform...");
+
       var platformModel = _mapper.Map<Platform>(platformCreateDto);
       _repository.CreatePlatform(platformModel);
       _repository.SaveChanges();
