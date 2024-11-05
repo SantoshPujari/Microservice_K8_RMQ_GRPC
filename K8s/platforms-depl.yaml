@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platforms-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platformservice
+  template:
+    metadata:
+      labels:
+        app: platformservice
+    spec:
+      containers:
+        - name: platformservice
+          image: santoshrpujari/platformservice:latest
+          ports:
+            - containerPort: 80
+              name: http-web-api
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+80
+# kubectl version
+# kubectl apply -f platform-depl.yaml
+# kubectl get deployment
+# kubectl get pods
+# kubectl get pods -o wide
+# kubectl delete deployment platforms-depl
