@@ -13,3 +13,6 @@ spec:
       targetPort: 80
 # kubectl apply -f platforms-np-srv.yaml
 # kubectl get services -o wide
+# kubectl delete service platformnpservice-srv
+# http://localhost:[service-port]/api/Platforms
+# http://localhost:31555/api/Platforms
